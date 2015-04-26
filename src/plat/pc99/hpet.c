@@ -47,7 +47,7 @@ seL4_timer_t *sel4platsupport_get_hpet(vspace_t *vspace, simple_t *simple, acpi_
 
     hpet = (seL4_timer_t *)calloc(1, sizeof(seL4_timer_t));
     if (hpet == NULL) {
-        LOG_ERROR("Failed to allocate hpet_t sizeofze %u\n", sizeof(seL4_timer_t));
+        LOG_ERROR("Failed to allocate hpet_t sizeofze %zu\n", sizeof(seL4_timer_t));
         goto error;
     }
 

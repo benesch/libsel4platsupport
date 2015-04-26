@@ -132,12 +132,12 @@ sel4platsupport_map_paddr_with_page_size(sel4platsupport_io_mapper_cookie_t *io_
 
     seL4_CPtr *frames = (seL4_CPtr*)malloc(sizeof(*frames) * num_pages);
     if (!frames) {
-        LOG_ERROR("Failed to allocate array of size %d", sizeof(*frames) * num_pages);
+        LOG_ERROR("Failed to allocate array of size %zu", sizeof(*frames) * num_pages);
         return NULL;
     }
     io_mapping_t *node = (io_mapping_t*)malloc(sizeof(*node));
     if (!node) {
-        LOG_ERROR("Failed to malloc of size %d", sizeof(*node));
+        LOG_ERROR("Failed to malloc of size %zu", sizeof(*node));
         free(frames);
         return NULL;
     }
@@ -318,7 +318,7 @@ sel4platsupport_new_io_mapper(simple_t simple, vspace_t vspace, vka_t vka, ps_io
     sel4platsupport_io_mapper_cookie_t *cookie;
     cookie = (sel4platsupport_io_mapper_cookie_t*)malloc(sizeof(*cookie));
     if (!cookie) {
-        LOG_ERROR("Failed to allocate %d bytes", sizeof(*cookie));
+        LOG_ERROR("Failed to allocate %zu bytes", sizeof(*cookie));
         return -1;
     }
     *cookie = (sel4platsupport_io_mapper_cookie_t) {
